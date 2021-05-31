@@ -1,0 +1,21 @@
+class Solution {
+    public boolean checkPowersOfThree(int n) {
+        int count=0;
+        while(Math.pow(3,count)<=n){
+            count++;
+        }
+        while(count>0){
+            if(Math.pow(3,count)<=n){
+                n-=Math.pow(3,count);    
+            }
+            if(count==0)
+                break;
+             count--;
+             if(n==0)
+            return true;
+        }
+        if(n==0||n==1)
+            return true;
+        return false;
+    }
+}
