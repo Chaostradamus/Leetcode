@@ -1,0 +1,21 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var findTargetSumWays = function(nums, target, memo = {}) {
+    if(target in memo) return memo[target]
+    if( target === 0) return true
+    if(target < 1 ) return false
+    
+    for (let num of nums) {
+        let count = 0
+        const remainder = target - num
+        if(findTargetSumWays(nums, remainder, memo) === target) {
+            memo[target] === true
+            return true
+        }
+    }
+   memo[target] = false
+    return target
+};
